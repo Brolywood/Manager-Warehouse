@@ -22,14 +22,12 @@ $result = mysqli_num_rows($ejecutar);
 if ($result > 0) {
     session_start();
     $_SESSION['activo'] = true;
-    $_SESSION['usuario'] = $usuario;
-    if($usuario == '180332403'){
-		$_SESSION['nameUser'] = $registro["nombre"]. ' ' .$registro["apellido"];
-		$_SESSION['cargo'] = $registro["cargo"];
+	$_SESSION['usuario'] = $usuario;
+	$_SESSION['nameUser'] = $registro["nombre"]. ' ' .$registro["apellido"];
+	$_SESSION['cargo'] = $registro["cargo"];
+    if($usuario == '180332403'){	
         header("Location:principalAdmin.php");
     }elseif($usuario == '153204209'){
-		$_SESSION['nameUser'] = $registro["nombre"]. ' ' .$registro["apellido"];
-		$_SESSION['cargo'] = $registro["cargo"];
         header("Location:principalBodega.php");
     }
 }else{
